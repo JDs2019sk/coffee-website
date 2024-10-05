@@ -12,101 +12,46 @@
                 <li style="animation-delay: 0.2s;"><a href="tipos-de-cafe.html">Tipos de Café</a></li>
                 <li style="animation-delay: 0.3s;"><a href="metodos-de-preparo.html">Métodos de Preparo</a></li>
                 <li style="animation-delay: 0.4s;"><a href="reviews.html">Reviews</a></li>
-                <li style="animation-delay: 0.5s;"><a href="calculadora-de-doses.html">Calculadora de Doses</a></li>
                 <li style="animation-delay: 0.6s;"><a href="loja.html">Loja</a></li>
             </ul>
         </nav>
     </header>
     <main style="margin-top: 100px;">
-        <section class="carousel" aria-label="Gallery">
-            <ol class="carousel__viewport">
-              <li id="carousel__slide1"
-                  tabindex="0"
-                  class="carousel__slide"> 
-          
-              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse3.mm.bing.net%2Fth%3Fid%3DOIP.CoLPEXQ4PW4ll5aJFdWGCwHaEK%26pid%3DApi&f=1&ipt=0aaac037e475ed07c2554a98d34d0fa2c41739a9ec06e7efafeb64a52fbf86b4&ipo=images">
-          
-                <div class="carousel__snapper">
-                  <a href="#carousel__slide4"
-                     class="carousel__prev">Go to last slide</a>
-                  <a href="#carousel__slide2"
-                     class="carousel__next">Go to next slide</a>
-                </div>
-              </li>
-              <li id="carousel__slide2"
-                  tabindex="0"
-                  class="carousel__slide">
-          
-              <img src="https://cdn.shopify.com/s/files/1/0046/8061/3981/files/Wake_Up_-_Check_Out_Letter_Head.png?height=628&pad_color=ffffff&v=1613507221&width=1200">
-          
-                <div class="carousel__snapper"></div>
-                <a href="#carousel__slide1"
-                   class="carousel__prev">Go to previous slide</a>
-                <a href="#carousel__slide3"
-                   class="carousel__next">Go to next slide</a>
-              </li>
-              <li id="carousel__slide3"
-                  tabindex="0"
-                  class="carousel__slide">
-          
-              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fthumbs.dreamstime.com%2Fb%2Fbottle-laboratory-coffee-bean-logo-vector-icon-design-illustration-203236183.jpg&f=1&nofb=1&ipt=a1894b9d6a4b591de2877eaf3ce766370d12d60aad03dd9cc03de96154980b21&ipo=images">
-          
-                <div class="carousel__snapper"></div>
-                <a href="#carousel__slide2"
-                   class="carousel__prev">Go to previous slide</a>
-                <a href="#carousel__slide4"
-                   class="carousel__next">Go to next slide</a>
-              </li>
-              <li id="carousel__slide4"
-                  tabindex="0"
-                  class="carousel__slide">
-          
-              <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2Fed%2F15%2F8b%2Fed158bc9fe1350bfb293e3345c134108.jpg&f=1&nofb=1&ipt=f24cc2348767331f7f79485d7f6936a9645fb0599777e7e108e4591660935277&ipo=images">
-          
-                <div class="carousel__snapper"></div>
-                <a href="#carousel__slide3"
-                   class="carousel__prev">Go to previous slide</a>
-                <a href="#carousel__slide1"
-                   class="carousel__next">Go to first slide</a>
-              </li>
-            </ol>
-            <aside class="carousel__navigation">
-              <ol class="carousel__navigation-list">
-                <li class="carousel__navigation-item">
-                  <a href="#carousel__slide1"
-                     class="carousel__navigation-button">Go to slide 1</a>
-                </li>
-                <li class="carousel__navigation-item">
-                  <a href="#carousel__slide2"
-                     class="carousel__navigation-button">Go to slide 2</a>
-                </li>
-                <li class="carousel__navigation-item">
-                  <a href="#carousel__slide3"
-                     class="carousel__navigation-button">Go to slide 3</a>
-                </li>
-                <li class="carousel__navigation-item">
-                  <a href="#carousel__slide4"
-                     class="carousel__navigation-button">Go to slide 4</a>
-                </li>
-              </ol>
-            </aside>
-          </section>  
+        <div class="slider-container">
+            <img src="/resources1/Starbucks_logo.png" alt="Imagem 1" class="slider-image active">
+            <img src="/resources1/wakemeup_logo.png" alt="Imagem 2" class="slider-image">
+            <img src="/resources1/sierra_logo.png" alt="Imagem 3" class="slider-image">
+            <img src="/resources1/littletalk_logo.png" alt="Imagem 3" class="slider-image">
+        </div>
+    
+        <script>
+            const images = document.querySelectorAll('.slider-image');
+            let currentIndex = 0;
+    
+            function showNextImage() {
+                images[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % images.length;
+                images[currentIndex].classList.add('active');
+            }
+    
+            setInterval(showNextImage, 5000); 
+        </script>
     <div class="container" id="produto-container">
         <div id="produto">
             <img src="\resources1\littletalk-dark.png" alt="1" class="product-image">
-            <h3 class="product-name">Little Talk - Dark</h3>
+            <h3 class="product-name">Little Talk - Dark <br>[1KG]</h3>
             <p class="product-price">€15.00</p>
             <button class="buy-button">Comprar</button>
         </div>
         <div id="produto">
             <img src="\resources1\littletalk-late.png" alt="2" class="product-image">
-            <h3 class="product-name">Little Talk - Latte</h3>
+            <h3 class="product-name">Little Talk - Latte <br>[1KG]</h3>
             <p class="product-price">€15.00</p>
             <button class="buy-button">Comprar</button>
         </div>
         <div id="produto">
             <img src="\resources1\SIERRA-COFFEE-LAB.png" alt="3" class="product-image">
-            <h3 class="product-name">Sierra Coffee</h3>
+            <h3 class="product-name">Sierra Coffee <br>[500g]</h3>
             <p class="product-price">€12.99</p>
             <button class="buy-button">Comprar</button>
         </div>
@@ -114,19 +59,19 @@
     <div class="container" id="produto-container">
         <div id="produto">
             <img src="\resources1\Starbucks - VERANDA BLEND.png" alt="4" class="product-image">
-            <h3 class="product-name">Starbucks - Veranda Blend</h3>
+            <h3 class="product-name">Starbucks - Veranda Blend <br>[750g]</h3>
             <p class="product-price">€25.00</p>
             <button class="buy-button">Comprar</button>
         </div>
         <div id="produto">
             <img src="\resources1\wakemeup-black.png" alt="5" class="product-image">
-            <h3 class="product-name">Wake me up - Black</h3>
+            <h3 class="product-name">Wake me up - Black <br>[750g]</h3>
             <p class="product-price">€19.99</p>
             <button class="buy-button">Comprar</button>
         </div>
         <div id="produto">
             <img src="\resources1\wakemeup-brown.png" alt="6" class="product-image">
-            <h3 class="product-name">Wake me up - Brown</h3>
+            <h3 class="product-name">Wake me up - Brown <br>[1KG]</h3>
             <p class="product-price">€18.99</p>
             <button class="buy-button">Comprar</button>
         </div>
