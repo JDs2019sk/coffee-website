@@ -3,6 +3,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Coffee Website - TIPOS DE CAFÉ</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href= "/resources1/favicon.ico" type="image/x-icon">
 </head>
 <body>
     <header>
@@ -16,34 +17,170 @@
             </ul>
         </nav>
     </header>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+        .coffee-types-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px;
+        }
+        .coffee-type {
+            flex-basis: calc(50% - 20px);
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+    
+        }
+        .coffee-type:hover {
+            transform: translateY(-5px);
+        }
+        .coffee-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        h1 {
+            text-align: center;
+            color: #e6b17e;
+        }
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+        }
+        .modal-content {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow-y: auto;
+            z-index: 1001;
+        }
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #333;
+        }
+    </style>
     <main style="margin-top: 100px;">
-        <h1>Tipos de Café</h1>
-        
+        <h1>Alguns tipos de Café...</h1>
         <div class="coffee-types-container">
-            <div class="coffee-type">
-                <img src="/api/placeholder/400/300" alt="Café Espresso" class="coffee-image">
+            <div class="coffee-type" onclick="openModal(this)">
+                <img src="/resources1/expresso.jpg" alt="Café Espresso" class="coffee-image">
                 <h3>Espresso</h3>
-                <p>O espresso é a base para muitas outras bebidas de café. É preparado forçando água quente através de grãos de café moídos finamente, resultando em uma bebida concentrada e encorpada.</p>
+                <p>O expresso é a base para muitas outras bebidas de café. É preparado forçando água quente através de grãos de café finamente moídos, resultando numa bebida concentrada e encorpada.</p>
             </div>
             
-            <div class="coffee-type">
-                <img src="/api/placeholder/400/300" alt="Café Cappuccino" class="coffee-image">
+            <div class="coffee-type" onclick="openModal(this)">
+                <img src="/resources1/cappuccino.jpg" alt="Café Cappuccino" class="coffee-image">
                 <h3>Cappuccino</h3>
-                <p>O cappuccino é feito com partes iguais de espresso, leite vaporizado e espuma de leite. É muitas vezes polvilhado com cacau em pó ou canela para dar um toque extra de sabor.</p>
+                <p>O cappuccino é feito com partes iguais de expresso, leite vaporizado e espuma de leite. É frequentemente polvilhado com cacau em pó ou canela para conferir um toque extra de sabor.</p>
             </div>
             
-            <div class="coffee-type">
-                <img src="/api/placeholder/400/300" alt="Café Latte" class="coffee-image">
+            <div class="coffee-type" onclick="openModal(this)">
+                <img src="/resources1/latte.jpg" alt="Café Latte" class="coffee-image">
                 <h3>Latte</h3>
                 <p>O latte é composto por espresso e leite vaporizado, com uma fina camada de espuma no topo. É conhecido por sua textura cremosa e sabor suave.</p>
             </div>
             
-            <div class="coffee-type">
-                <img src="/api/placeholder/400/300" alt="Café Americano" class="coffee-image">
+            <div class="coffee-type" onclick="openModal(this)">
+                <img src="/resources1/americano.jpg" alt="Café Americano" class="coffee-image">
                 <h3>Americano</h3>
-                <p>O americano é feito adicionando água quente ao espresso, resultando em uma bebida com força similar ao café coado tradicional, mas com um sabor diferente devido ao método de extração.</p>
+                <p>O americano é feito adicionando água quente ao espresso, que resulta numa bebida com força similar ao café coado tradicional, mas com um sabor diferente devido ao método de extração.</p>
             </div>
         </div>
+    
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="modal-content" id="modalContent">
+                <button class="close-button" onclick="closeModal()">&times;</button>
+                <div id="modalBody"></div>
+            </div>
+        </div>
+    <style>
+         body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f5f2;
+            color: #4a4a4a;
+            line-height: 1.6;
+        }
+
+        .coffee-facts {
+            max-width: 96%;
+            margin: 50px auto;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+
+        .coffee-facts h2 {
+            color: #e6b17e;
+            font-size: 2.5em;
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e6b17e;
+            padding-bottom: 10px;
+        }
+
+        .coffee-facts ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .coffee-facts li {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: #d4bf8c;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .coffee-facts li:hover {
+            transform: translateY(-5px);
+        }
+        @media (max-width: 600px) {
+            .coffee-facts {
+                margin: 20px;
+                padding: 20px;
+            }
+
+            .coffee-facts h2 {
+                font-size: 2em;
+            }
+        }
+    </style>
+    </style>
 
         <div class="coffee-facts">
             <h2>Curiosidades sobre Café</h2>
@@ -83,5 +220,26 @@
             <p>&copy; 2024 Trabalho realizado por: Joel Dias & Joel Almeida TIIGR 22/25 </p>
         </div>
     </footer>
+    <script>
+       function openModal(element) {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalBody = document.getElementById('modalBody');
+            modalBody.innerHTML = element.innerHTML;
+            modalOverlay.style.display = 'block';
+        }
+
+        function closeModal() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            modalOverlay.style.display = 'none';
+        }
+
+        // Fechar o modal se clicar fora do conteúdo
+        window.onclick = function(event) {
+            const modalOverlay = document.getElementById('modalOverlay');
+            if (event.target == modalOverlay) {
+                closeModal();
+            }
+        }
+    </script>
 </body>
 </html>
