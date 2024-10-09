@@ -183,38 +183,39 @@
     </footer>
 
     <script>
-        const modal = document.getElementById("methodModal");
-        const methodCards = document.querySelectorAll(".method-card");
-        const closeBtn = document.getElementsByClassName("close")[0];
-        const modalMethodName = document.getElementById("modalMethodName");
-        const modalAdditionalInfo = document.getElementById("modalAdditionalInfo");
+       const modal = document.getElementById("methodModal");
+const methodCards = document.querySelectorAll(".method-card");
+const closeBtn = document.getElementsByClassName("close")[0];
+const modalMethodName = document.getElementById("modalMethodName");
+const modalAdditionalInfo = document.getElementById("modalAdditionalInfo");
 
-        const methodInfo = {
-            "cafe-coado": "O café coado é um método tradicional que consiste em verter água quente sobre o pó de café em um filtro. É simples, rápido e produz uma bebida limpa e suave.",
-            "prensa-francesa": "A prensa francesa usa imersão e pressão para extrair os sabores do café. Resulta em uma bebida encorpada e rica, ideal para quem gosta de café forte.",
-            "espresso": "O espresso é feito forçando água quente pressurizada através de café moído fino. Produz uma bebida concentrada com uma camada de creme na superfície.",
-            "chemex": "O Chemex é um método de filtro que usa um filtro mais grosso, resultando em um café mais limpo e brilhante, destacando notas mais sutis e florais.",
-            "aeropress": "O AeroPress é um método versátil que usa pressão para extrair o café. É rápido, fácil de limpar e permite muita experimentação com diferentes receitas.",
-            "moka": "A cafeteira Moka usa vapor de água pressurizado para extrair o café. Produz um café forte e concentrado, semelhante ao espresso, mas com um sabor distinto."
-        };
+const methodInfo = {
+    "cafe-coado": "O café coado é um método tradicional que consiste em verter água quente sobre o pó de café em um filtro. É simples, rápido e produz uma bebida limpa e suave.",
+    "prensa-francesa": "A prensa francesa usa imersão e pressão para extrair os sabores do café. Resulta em uma bebida encorpada e rica, ideal para quem gosta de café forte.",
+    "espresso": "O espresso é feito forçando água quente pressurizada através de café moído fino. Produz uma bebida concentrada com uma camada de creme na superfície.",
+    "chemex": "O Chemex é um método de filtro que usa um filtro mais grosso, resultando em um café mais limpo e brilhante, destacando notas mais sutis e florais.",
+    "aeropress": "O AeroPress é um método versátil que usa pressão para extrair o café. É rápido, fácil de limpar e permite muita experimentação com diferentes receitas.",
+    "moka": "A cafeteira Moka usa vapor de água pressurizado para extrair o café. Produz um café forte e concentrado, semelhante ao espresso, mas com um sabor distinto."
+};
 
-        methodCards.forEach(card => {
-            card.onclick = function() {
-                const method = this.getAttribute("data-method");
-                modalMethodName.textContent = this.querySelector(".method-name").textContent;
-                modalAdditionalInfo.textContent = methodInfo[method];
-                modal.style.display = "block";
-        }
+methodCards.forEach(card => {
+    card.onclick = function() {
+        const method = this.getAttribute("data-method");
+        modalMethodName.textContent = this.querySelector(".method-name").textContent;
+        modalAdditionalInfo.textContent = methodInfo[method];
+        modal.style.display = "block";
+    }
+});
 
-        closeBtn.onclick = function() {
-            modal.style.display = "none";
-        }
+closeBtn.onclick = function() {
+    modal.style.display = "none";
+}
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
-        }
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
     </script>
 </body>
 </html>
