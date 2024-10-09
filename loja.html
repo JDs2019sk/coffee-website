@@ -1,14 +1,97 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> Coffee Website - LOJA </title>
+    <title> Coffee Website - LOJA</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href= "/resources1/favicon.ico" type="image/x-icon">
 </head>
+
+<style>
+        #bean-counter {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(60, 47, 47, 0.8);
+            color: #e6b17e;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 18px;
+            z-index: 1001;
+        }
+        .hamburger-menu {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .hamburger-menu .bar {
+            width: 25px;
+            height: 3px;
+            background-color: #e6b17e;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 10px;
+            }
+
+            .hamburger-menu {
+                display: block;
+                margin-right: 15px;
+                z-index: 1001;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 70%;
+                height: calc(100% - 70px);
+                background-color: #3c2f2f;
+                transition: 0.3s;
+                overflow-y: auto;
+            }
+
+            nav.show {
+                left: 0;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                padding: 20px 0;
+            }
+
+            nav ul li {
+                margin: 10px 0;
+                opacity: 0;
+                transform: translateX(-20px);
+                transition: opacity 0.3s ease, transform 0.3s ease;
+            }
+
+            nav.show ul li {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+            nav ul li a {
+                display: block;
+                padding: 10px 20px;
+            }
+        }
+</style>
 <body>
+    <div id="bean-counter">Coffee Beans: <span id="count">0</span></div>
     <header>
+        
         <nav>
             <ul>
+                
                 <li style="animation-delay: 0.1s;"><a href="index.html">Home</a></li>
                 <li style="animation-delay: 0.2s;"><a href="tipos-de-cafe.html">Tipos de Café</a></li>
                 <li style="animation-delay: 0.3s;"><a href="metodos-de-preparo.html">Métodos de Preparo</a></li>
@@ -106,5 +189,62 @@
             <p>&copy; 2024 Trabalho realizado por: Joel Dias & Joel Almeida TIIGR 22/25 </p>
         </div>
     </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const featuredItems = document.querySelectorAll('.featured-item');
+            featuredItems.forEach((item, index) => {
+                item.style.animationDelay = `${index * 0.2}s`;
+                item.style.animation = 'fadeIn 1s ease-out forwards';
+            });
+    
+            const flierfixe = document.getElementById('flierfixe'); // The clickable flying bean container
+            const countDisplay = document.getElementById('count');
+            
+            // Load bean count from local storage
+            let beanCount = parseInt(localStorage.getItem('beanCount')) || 0;
+            countDisplay.textContent = beanCount;
+    
+            flierfixe.addEventListener('click', function (e) {
+                e.stopPropagation();
+                beanCount += 3; // Increase bean count by 3
+                countDisplay.textContent = beanCount;
+                
+                // Save the updated bean count to local storage
+                localStorage.setItem('beanCount', beanCount);
+            });
+    
+            // Assign flyingBean to the correct element (the flying bean image)
+            const flyingBean = document.querySelector('.flier > img');
+    
+            // Function to animate the bean
+            function animateBean() {
+                flyingBean.style.animation = 'fly 15s linear infinite';
+            }
+    
+            // Call the function to animate the bean
+            animateBean();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburger = document.querySelector('.hamburger-menu');
+            const nav = document.querySelector('nav');
+
+            hamburger.addEventListener('click', function() {
+                nav.classList.toggle('show');
+                hamburger.classList.toggle('active');
+            });
+
+            // Close menu when a link is clicked
+            document.querySelectorAll('nav ul li a').forEach(link => {
+                link.addEventListener('click', () => {
+                    nav.classList.remove('show');
+                    hamburger.classList.remove('active');
+                });
+            });
+        });
+    </script>
+    </script>
+    
+    
 </body>
 </html>
