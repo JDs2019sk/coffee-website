@@ -187,24 +187,7 @@
         const methodCards = document.querySelectorAll(".method-card");
         const closeBtn = document.getElementsByClassName("close")[0];
         const modalMethodName = document.getElementById("modalMethodName");
-        const modalMethodDescription = document.getElementById("modalMethodDescription");
         const modalAdditionalInfo = document.getElementById("modalAdditionalInfo");
-        function show_image(src, width, height,alt) {
-            // Create a new image element
-            let img = document.createElement("img");
- 
-            // Set the source, width, 
-            // height, and alt attributes
-            img.src = src;
-            img.width = width;
-            img.height = height;
-            img.alt = alt;
- 
-            // Append the image element
-            // to the body of the document
-            document.card.appendChild(img);
-        }
-
 
         const methodInfo = {
             "cafe-coado": "O café coado é um método tradicional que consiste em verter água quente sobre o pó de café em um filtro. É simples, rápido e produz uma bebida limpa e suave.",
@@ -219,13 +202,8 @@
             card.onclick = function() {
                 const method = this.getAttribute("data-method");
                 modalMethodName.textContent = this.querySelector(".method-name").textContent;
-                modalMethodDescription.textContent = this.querySelector(".method-description").textContent;
                 modalAdditionalInfo.textContent = methodInfo[method];
                 modal.style.display = "block";
-                show_image(
-"https://media.geeksforgeeks.org/wp-content/uploads/20231228172727/gfg-image.jpg",
-            300, 200,"gfg logo");
-            }
         });
 
         closeBtn.onclick = function() {
