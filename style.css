@@ -428,24 +428,19 @@ h2 {
     }
 
     #produto {
-        max-width: 280px;
-        /* Reduzido de 300px para 280px */
+        max-width: 280px;    
         height: 420px;
-        /* Ajustado para manter a proporção */
     }
 }
 
 @media (max-width: 480px) {
     #produto {
         height: 400px;
-        /* Ajustado de 350px para 400px */
         width: 95%;
-        /* Aumentado ligeiramente para telas muito pequenas */
     }
 
     .product-image {
         height: 200px;
-        /* Aumentado de 180px para 200px */
     }
 
     .product-name {
@@ -459,7 +454,6 @@ h2 {
     .buy-button {
         font-size: 14px;
         width: 90%;
-        /* Aumentado de 85% para 90% em telas menores */
     }
 }
 
